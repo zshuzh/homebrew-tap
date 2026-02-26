@@ -3,7 +3,7 @@ cask "wt" do
   name "wt"
   desc "Git worktree manager optimized for AI workflows"
   homepage "https://github.com/zshuzh/wt"
-  version "1.0.0"
+  version "1.0.1"
 
   livecheck do
     skip "Auto-generated on release."
@@ -14,23 +14,34 @@ cask "wt" do
   on_macos do
     on_intel do
       url "https://github.com/zshuzh/wt/releases/download/v#{version}/wt_#{version}_darwin_amd64.tar.gz"
-      sha256 "0d187042f72385f9268f4b7dded0aa2ac76632253c88f27284c4c0bdbcb44d0c"
+      sha256 "1de3857df691c47041e755c44fde9098d6533d2e8523a589430f7eca76610983"
     end
     on_arm do
       url "https://github.com/zshuzh/wt/releases/download/v#{version}/wt_#{version}_darwin_arm64.tar.gz"
-      sha256 "901e4b61d3c4d79d7599a965702300c9b1d5a52b6d8cd50ea45f166edac5d4ce"
+      sha256 "c9da1c85d5e9f41fec040a7924f14b66008b4e54041a6a9c07aa91d192303c01"
     end
   end
 
   on_linux do
     on_intel do
       url "https://github.com/zshuzh/wt/releases/download/v#{version}/wt_#{version}_linux_amd64.tar.gz"
-      sha256 "af6d277e119409d900090d206e740f44150071db78740657b07bc3d4d2a373fd"
+      sha256 "6dc2c6d779cfcdef7ccb30eba71d88a8906b5e085f055adc3f42efead711dd7f"
     end
     on_arm do
       url "https://github.com/zshuzh/wt/releases/download/v#{version}/wt_#{version}_linux_arm64.tar.gz"
-      sha256 "877b112f38f639b19b9518486f0a3be135c5a42a304c75367b9c4dd745565c84"
+      sha256 "a6521043874d07516bda10c99905b2ecd0ad1258f52fd06278da003ba5a8beda"
     end
+  end
+
+  postflight do
+    if system_command("/usr/bin/xattr", args: ["-h"]).exit_status == 0
+      system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}"]
+    end
+  end
+
+  caveats do
+    "To enable shell integration, add to your ~/.zshrc:"
+    "  eval "$(wt init zsh)""
   end
 
   # No zap stanza required
