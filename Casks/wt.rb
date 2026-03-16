@@ -3,7 +3,7 @@ cask "wt" do
   name "wt"
   desc "Git worktree manager optimized for AI workflows"
   homepage "https://github.com/zshuzh/wt"
-  version "1.1.0"
+  version "1.2.0"
 
   livecheck do
     skip "Auto-generated on release."
@@ -14,22 +14,22 @@ cask "wt" do
   on_macos do
     on_intel do
       url "https://github.com/zshuzh/wt/releases/download/v#{version}/wt_#{version}_darwin_amd64.tar.gz"
-      sha256 "4e39736e4ee3e3c68c62b40558391fc044e36c9c22b87e28b604916d310e5296"
+      sha256 "40419260b1fe644879593069afeeaa61461c8ca8aaed0971fa72af460ed952c8"
     end
     on_arm do
       url "https://github.com/zshuzh/wt/releases/download/v#{version}/wt_#{version}_darwin_arm64.tar.gz"
-      sha256 "bd627ebaf77174a84b8e9ddefc71efac53ec6d7dc7f3d81bd3b0cc9d80e92f2f"
+      sha256 "3cb8bc89aebbb464f732b01f0aeee87eb564713e8d69f31727037498eab76c69"
     end
   end
 
   on_linux do
     on_intel do
       url "https://github.com/zshuzh/wt/releases/download/v#{version}/wt_#{version}_linux_amd64.tar.gz"
-      sha256 "188040e3baab2254e288c468f3fad37e5b8dd0fc74b3cec54e9553cab3825461"
+      sha256 "9f7dcbc5285f97167fd4bcfe77c60f38dbeec86f02f4c6ee3ffa7245eb654e6a"
     end
     on_arm do
       url "https://github.com/zshuzh/wt/releases/download/v#{version}/wt_#{version}_linux_arm64.tar.gz"
-      sha256 "94db398dc01432df9b34f68a6f0547c011c12d7c7c4ef665e4b8492462da0c02"
+      sha256 "d9778d83b92d514d9cf0d84d85fb21cdf66b2f8b02fa77a058ffb710ac255507"
     end
   end
 
